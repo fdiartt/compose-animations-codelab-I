@@ -1,22 +1,23 @@
 # Compose animations codelab I
 
-This repository contains a guide on the process of developing a collapsible menu animation, using [Jetpack Compose animations API](https://developer.android.com/jetpack/compose/animation).
+## Part I
 
-## Guide
+First, we will create the button that we will use for the menu items, using a custom shape.
 
-1. Build reusable button with custom shape.
-2. ...
-3. ...
+Using the `GenericShape` constructor, and applying basic trigonometry, we will obtain our [HexagonShape](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/theme/Shape.kt).
 
-## Result
+Then, create the composable for the button, using a `Box` to arrange content and the `clip` modifier with our `HexagonShape`. 
+[Browse here.](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/component/HexagonalButton.kt)
+
+### Result
 
 <img
-alt="Animation result"
-height="540"
-src="https://github.com/fabirt/jetpack-compose-lab/raw/main/docs/honeycomb-menu.gif"
+alt="Button result"
+height="140"
+src="docs/hexagonal_button_preview.png"
 />
 
-## More
+### More
 
 - [Compose animations cheat sheet](https://storage.googleapis.com/android-stories/compose/Compose_Animation_Cheat_Sheet.pdf)
 - [Philipp Lackner Compose Animations YT tutorial](https://youtu.be/6ZZDPILtYlA)
