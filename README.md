@@ -1,20 +1,27 @@
 # Compose animations codelab I
 
-## Part I
+## Part II
 
-First, we will create the button that we will use for the menu items, using a custom shape.
+Here we will create our stack of buttons and the corresponding animations.
 
-Using the `GenericShape` constructor, and applying basic trigonometry, we will obtain our [HexagonShape](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/theme/Shape.kt).
+First, define a data class to hold menu items data. Define a list of dummy items to fill the menu. [AnimatedMenuItem](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/model/AnimatedMenuItem.kt).
 
-Then, create the composable for the button, using a `Box` to arrange content and the `clip` modifier with our `HexagonShape`. 
-[Browse here.](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/component/HexagonalButton.kt)
+Now, we will stack 7 buttons, using `Box`, 6 from the list and 1 to toogle the state, which will be always visible.
+
+The state controller will be a float, which will go from 0 (collapsed state) to 1 (expanded state). To control the menu state,
+the composable will receive a boolean parameter.
+
+Mapping the items list, we can assing a different angle for each button. Using `absoluteOffset` modifier, we can transform
+the position of each button.
+
+Finally, the toggle icon will rotate from 0 to 135 degrees. [AnimatedMenu](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/component/AnimatedMenu.kt)
 
 ### Result
 
 <img
-alt="Button result"
-height="140"
-src="docs/hexagonal_button_preview.png"
+alt="Animated menu preview"
+height="240"
+src="docs/animated_menu.mov"
 />
 
 ### More
