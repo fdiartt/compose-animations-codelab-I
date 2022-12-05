@@ -21,7 +21,7 @@ Finally, the toggle icon will rotate from 0 to 135 degrees. [AnimatedMenu](app/s
 <img
 alt="Animated menu preview"
 height="240"
-src="docs/animated_menu.mov"
+src="docs/animated_menu.gif"
 />
 
 ### More
