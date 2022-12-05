@@ -1,6 +1,6 @@
 # Compose animations codelab I
 
-This repository contains a guide on the process of developing a collapsible menu animation, using [Jetpack Compose animations API](https://developer.android.com/jetpack/compose/animation).
+This repository contains a guide on the process of building a collapsible menu animation, using [Jetpack Compose animations API](https://developer.android.com/jetpack/compose/animation).
 
 ## Guide
 
