@@ -2,8 +2,8 @@
 
 ## Part III
 
-Bearing in mind that whenever we want to use our animated menu we will have to create the corresponding state, 
-we can create an state holder, in order to reduce code duplication and have a class that is responsible of abstracting the state.
+Considering that whenever we want to use our animated menu we will have to create the corresponding state, 
+we can create a state holder, in order to reduce code duplication and have a class that is responsible of abstracting the state.
 [SwitchableState](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/state/SwitchableState.kt).
 
 ```kotlin
