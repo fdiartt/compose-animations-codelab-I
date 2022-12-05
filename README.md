@@ -4,9 +4,10 @@ This repository contains a guide on the process of developing a collapsible menu
 
 ## Guide
 
-1. Build reusable button with custom shape.
-2. ...
-3. ...
+1. Build reusable button with custom shape. [Go to branch.](https://github.com/fdiartt/compose-animations-codelab-I/tree/part-I-button-composable)
+2. Build the animation. [Go to branch.](https://github.com/fdiartt/compose-animations-codelab-I/tree/part-II-animated-menu)
+3. Refactor using UI state holder. [Go to branch.](https://github.com/fdiartt/compose-animations-codelab-I/tree/part-III-state-holder)
+4. Final result. [Go to branch.](https://github.com/fdiartt/compose-animations-codelab-I/tree/final)
 
 ## Result
 
