@@ -30,7 +30,7 @@ The state controller will be a float, which will go from 0 (collapsed state) to 
 the composable will receive a boolean parameter.
 
 ```kotlin
-val currentState = animateFloatAsState(
+val currentState by animateFloatAsState(
     targetValue = if (isCollapsed) COLLAPSED_STATE else EXPANDED_STATE,
     animationSpec = tween(
         durationMillis = 400,
@@ -45,12 +45,12 @@ the position of each button.
 ```kotlin
 items.mapIndexed { index, item ->
     HexagonalButton(
-        size = buttonSize,
+        size = BUTTON_SIZE,
         onClick = item.onClick,
         color = Color.White,
         modifier = Modifier.absoluteOffset(
-            x = (currentState.value * (buttonSize + 4) * cos((60f * index - 90).toRadians())).dp,
-            y = (currentState.value * (buttonSize + 4) * sin((60f * index - 90).toRadians())).dp
+            x = (currentState * (BUTTON_SIZE + 4) * cos((60f * index - 90).toRadians())).dp,
+            y = (currentState * (BUTTON_SIZE + 4) * sin((60f * index - 90).toRadians())).dp
         )
     ) {
         Icon(
@@ -66,14 +66,12 @@ items.mapIndexed { index, item ->
 Finally, the toggle icon will rotate from 0 to 135 degrees. [AnimatedMenu.](app/src/main/java/dev/fabirt/composeanimationscodelab1/ui/component/AnimatedMenu.kt)
 
 ```kotlin
-val iconRotation by derivedStateOf {
-    currentState.value * (135f)
-}
+val iconRotation = currentState * 135f
 ```
 
 ```kotlin
 HexagonalButton(
-    size = buttonSize,
+    size = BUTTON_SIZE,
     onClick = {
         onChange(isCollapsed)
     }

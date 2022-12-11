@@ -10,7 +10,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,29 +33,25 @@ fun AnimatedMenu(
     isCollapsed: Boolean,
     onChange: (Boolean) -> Unit
 ) {
-    val currentState = animateFloatAsState(
+    val currentState by animateFloatAsState(
         targetValue = if (isCollapsed) COLLAPSED_STATE else EXPANDED_STATE,
         animationSpec = tween(
             durationMillis = 400,
             easing = LinearEasing
         )
     )
-    val iconRotation by derivedStateOf {
-        currentState.value * (135f)
-    }
-    val buttonSize = 80f
 
     Box(
         modifier = Modifier
     ) {
         items.mapIndexed { index, item ->
             HexagonalButton(
-                size = buttonSize,
+                size = BUTTON_SIZE,
                 onClick = item.onClick,
                 color = Color.White,
                 modifier = Modifier.absoluteOffset(
-                    x = (currentState.value * (buttonSize + 4) * cos((60f * index - 90).toRadians())).dp,
-                    y = (currentState.value * (buttonSize + 4) * sin((60f * index - 90).toRadians())).dp
+                    x = (currentState * (BUTTON_SIZE + 4) * cos((60f * index - 90).toRadians())).dp,
+                    y = (currentState * (BUTTON_SIZE + 4) * sin((60f * index - 90).toRadians())).dp
                 )
             ) {
                 Icon(
@@ -69,7 +64,7 @@ fun AnimatedMenu(
         }
 
         HexagonalButton(
-            size = buttonSize,
+            size = BUTTON_SIZE,
             onClick = {
                 onChange(isCollapsed)
             }
@@ -80,7 +75,7 @@ fun AnimatedMenu(
                 tint = Color.White,
                 modifier = Modifier
                     .size(40.dp)
-                    .rotate(iconRotation)
+                    .rotate(currentState * 135f)
             )
         }
     }
@@ -88,6 +83,7 @@ fun AnimatedMenu(
 
 private const val COLLAPSED_STATE = 0f
 private const val EXPANDED_STATE = 1f
+private const val BUTTON_SIZE = 80f
 
 @Preview
 @Composable
